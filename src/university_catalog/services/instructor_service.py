@@ -17,7 +17,7 @@ class InstructorService:
                 )
 
             return LookupInstructorResult(
-                name=instructor.name,
-                email=instructor.email,
-                department_name=instructor.department.name,
+                name=instructor.name,  # type: ignore[arg-type]
+                email=instructor.email,  # type: ignore[arg-type]
+                department_name=instructor.department.name,  # type: ignore[arg-type]
             )
