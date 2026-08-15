@@ -1,0 +1,92 @@
+site_name: University Course Catalog MCP Server
+site_description: Production-grade MCP server for university course catalog
+site_author: University Course Catalog Team
+site_url: https://yourusername.github.io/university-course-catalog-mcp
+repo_url: https://github.com/yourusername/university-course-catalog-mcp
+repo_name: university-course-catalog-mcp
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: getting-started/quickstart.md
+      - Docker: getting-started/docker.md
+      - Configuration: getting-started/configuration.md
+  - MCP Protocol:
+      - Overview: mcp/overview.md
+      - Tools: mcp/tools.md
+      - Resources: mcp/resources.md
+      - Prompts: mcp/prompts.md
+      - Transport: mcp/transport.md
+  - API Reference:
+      - Health Check: api/health.md
+      - Root Endpoint: api/root.md
+  - Data Model:
+      - Schema: data-model/schema.md
+      - Relationships: data-model/relationships.md
+      - Seeded Data: data-model/seeded-data.md
+  - Development:
+      - Architecture: development/architecture.md
+      - Adding Features: development/adding-features.md
+      - Testing: development/testing.md
+      - Database: development/database.md
+  - Deployment:
+      - Docker: deployment/docker.md
+      - Production: deployment/production.md
+      - Troubleshooting: deployment/troubleshooting.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/university-course-catalog-mcp
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/yourusername/university-catalog-mcp
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+
+copyright: Copyright &copy; 2024 University Course Catalog MCP Server - MIT License

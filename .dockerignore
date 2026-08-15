@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+.idea/
+.vscode/
+coverage.xml
+htmlcov/
+*.log
+.DS_Store
+.git/
+.gitignore
+README.md
+pytest.ini
+tests/
