@@ -86,4 +86,4 @@ python -m uvicorn university_catalog.main:app --reload
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](https://github.com/Manirider/University-Course-Catalog-MCP/blob/main/LICENSE) for details.

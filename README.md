@@ -10,7 +10,6 @@
 
 A production-grade **Model Context Protocol (MCP) server** that exposes a university course catalog through standardized tools, resources, and prompts. Enables AI assistants and LLM-based applications to search courses, retrieve prerequisites, look up instructors, visualize dependency graphs, and access structured catalog data.
 
----
 
 ## Table of Contents
 
@@ -31,7 +30,6 @@ A production-grade **Model Context Protocol (MCP) server** that exposes a univer
 - [Contributing](#contributing)
 - [License](#license)
 
----
 
 ## Overview
 
@@ -54,7 +52,6 @@ The Model Context Protocol is an open standard that allows AI applications to se
 | Single consumer | Multiple AI clients |
 | Custom schemas | Shared type definitions |
 
----
 
 ## Architecture
 
@@ -81,7 +78,6 @@ graph TD
 | **Data Layer** | SQLAlchemy models, database config | `src/university_catalog/models.py`, `database.py` |
 | **API Layer** | Health check, root endpoint | `src/university_catalog/api/` |
 
----
 
 ## Features
 
@@ -108,7 +104,6 @@ graph TD
 | `course_comparison_template` | Structured side-by-side course comparison | `course_code_1`, `course_code_2` |
 | `course_advisor` | Academic advising for course planning | `student_goals`, `completed_courses` |
 
----
 
 ## Tech Stack
 
@@ -125,7 +120,6 @@ graph TD
 | **Testing** | pytest + pytest-asyncio | 8.3+ |
 | **Containerization** | Docker + Docker Compose | Latest |
 
----
 
 ## Project Structure
 
@@ -185,7 +179,6 @@ university-course-catalog-mcp/
     └── test_tools.py          # Tool behavior tests
 ```
 
----
 
 ## Quick Start
 
@@ -222,7 +215,6 @@ Server starts at:
 - **Health Check**: `http://localhost:8080/health`
 - **Root Info**: `http://localhost:8080/`
 
----
 
 ## Docker Deployment
 
@@ -268,7 +260,6 @@ curl http://localhost:8080/health
 
 Override via `.env` or `docker-compose.yml` environment section.
 
----
 
 ## API Reference
 
@@ -312,7 +303,6 @@ Streamable HTTP transport for MCP protocol. Compatible with:
 - [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 - Any MCP-compatible client (Claude Desktop, custom agents, etc.)
 
----
 
 ## MCP Protocol
 
@@ -428,7 +418,6 @@ await mcp.getPrompt("course_comparison_template", {
 })
 ```
 
----
 
 ## Data Model
 
@@ -478,7 +467,6 @@ erDiagram
 | `course_id` | INTEGER | PK, FK → courses.id, INDEX |
 | `prerequisite_id` | INTEGER | PK, FK → courses.id, INDEX |
 
----
 
 ## Seeded Data
 
@@ -541,7 +529,6 @@ MATH101 → MATH301
 
 > **Note**: Arrows indicate "is prerequisite for" (source → target)
 
----
 
 ## Testing
 
@@ -580,8 +567,6 @@ pytest tests/test_mcp_integration.py -v
 - **MCP Integration**: End-to-end protocol verification
 - **Health**: HTTP endpoint availability, database connectivity
 
----
-
 ## Development
 
 ### Code Style
@@ -614,8 +599,6 @@ For schema changes (SQLite doesn't support ALTER COLUMN):
 rm data/catalog.db
 # 3. Restart server (auto-seeds)
 ```
-
----
 
 ## Troubleshooting
 
@@ -668,8 +651,6 @@ docker compose logs mcp-server
 | `MCP connection refused` | Wrong URL | Use `/mcp` endpoint, not `/` |
 | `Course not found` | Case/spacing | Tools normalize automatically |
 
----
-
 ## Contributing
 
 1. Fork the repository
@@ -686,43 +667,9 @@ docker compose logs mcp-server
 - Update documentation for API changes
 - Keep commits atomic and well-described
 
----
-
-## Evaluation Checklist
-
-| Requirement | Status | Verification |
-|-------------|--------|--------------|
-| Dockerfile exists | ✅ | Multi-stage, slim, non-root |
-| docker-compose.yml exists | ✅ | Healthcheck, volumes, env |
-| .env.example exists | ✅ | All config documented |
-| Port 8080 exposed | ✅ | Dockerfile + compose |
-| ./data mounted to /app/data | ✅ | Volume persistence |
-| Healthcheck works | ✅ | `curl /health` returns 200 |
-| data/catalog.db exists | ✅ | Auto-seeded on startup |
-| All 4 tables exist | ✅ | departments, instructors, courses, prerequisites |
-| Minimum data seeded | ✅ | 5 depts, 8 instructors, 15 courses, 12 prereqs |
-| search_courses tool | ✅ | MCP + unit tests |
-| get_prerequisites tool | ✅ | Direct prereqs only |
-| lookup_instructor tool | ✅ | Case-insensitive |
-| get_prerequisite_graph tool | ✅ | Transitive graph |
-| course_descriptions resource | ✅ | All courses |
-| department_directory resource | ✅ | All departments |
-| course_comparison_template prompt | ✅ | {{course_code_1}}, {{course_code_2}} |
-| Automated tests pass | ✅ | 57/57 passing |
-| Docker build passes | ✅ | Clean build verified |
-| Docker runtime healthy | ✅ | Healthcheck passes |
-| MCP protocol verified | ✅ | Inspector compatible |
-| Database persistence works | ✅ | Volume survives restart |
-| No security issues | ✅ | No secrets, SQL injection safe |
-| Clean, documented code | ✅ | Type hints, docstrings |
-
----
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 ## Acknowledgments
 
@@ -732,8 +679,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [SQLAlchemy](https://www.sqlalchemy.org/) - Database toolkit
 - [NetworkX](https://networkx.org/) - Graph algorithms
 
----
+## Author
 
-**Built with ❤️ for the MCP ecosystem**
-
-*Star this repo if you find it useful!*
+MANIKANTA SURYASAI
+AIML DEVELOPER | ENGINEER

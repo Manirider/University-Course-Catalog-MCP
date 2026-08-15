@@ -17,5 +17,6 @@ RUN mkdir -p /app/data
 EXPOSE 8080
 
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app/src:/app
 
 CMD ["python", "-m", "uvicorn", "university_catalog.main:app", "--host", "0.0.0.0", "--port", "8080"]
