@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from sqlalchemy import text
-from university_catalog.schemas import HealthResponse
+
 from university_catalog.database import get_engine
+from university_catalog.schemas import HealthResponse
 
 router = APIRouter(tags=["health"])
 
@@ -15,7 +16,7 @@ async def health_check():
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
         db_status = "connected"
-    except Exception:
+    except (OSError, ImportError, RuntimeError):
         db_status = "disconnected"
-    
+
     return HealthResponse(status="healthy", database=db_status)

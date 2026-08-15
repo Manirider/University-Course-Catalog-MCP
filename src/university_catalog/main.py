@@ -1,10 +1,12 @@
+import logging
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from starlette.routing import Mount
-from university_catalog.database import init_db
+
 from university_catalog.api import health_router
+from university_catalog.database import init_db
 from university_catalog.mcp import mcp_server
-import logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -15,6 +17,7 @@ async def lifespan(app: FastAPI):
     logger.info("Starting up University Course Catalog MCP Server...")
     init_db()
     from university_catalog.seed import seed_database
+
     seed_database()
     logger.info("Database initialized and seeded")
     yield

@@ -1,7 +1,12 @@
 from sqlalchemy import (
-    Column, Integer, String, Text, ForeignKey, Index, UniqueConstraint
+    Column,
+    ForeignKey,
+    Index,
+    Integer,
+    String,
+    Text,
 )
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
@@ -32,9 +37,7 @@ class Instructor(Base):
     department = relationship("Department", back_populates="instructors")
     courses = relationship("Course", back_populates="instructor")
 
-    __table_args__ = (
-        Index("ix_instructors_name", "name"),
-    )
+    __table_args__ = (Index("ix_instructors_name", "name"),)
 
     def __repr__(self):
         return f"<Instructor(id={self.id}, name='{self.name}', email='{self.email}')>"

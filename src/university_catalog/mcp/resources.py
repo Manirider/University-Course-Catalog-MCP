@@ -1,6 +1,7 @@
 from mcp.server.fastmcp import FastMCP
+
 from university_catalog.database import get_db_session
-from university_catalog.models import Course, Department
+from university_catalog.models import Course
 from university_catalog.repositories import DepartmentRepository
 
 
@@ -8,13 +9,11 @@ def course_descriptions() -> str:
     """Get all course descriptions."""
     with get_db_session() as session:
         courses = session.query(Course).order_by(Course.course_code.asc()).all()
-        
+
         lines = []
         for course in courses:
-            lines.append(
-                f"[{course.course_code}] {course.title}: {course.description}"
-            )
-        
+            lines.append(f"[{course.course_code}] {course.title}: {course.description}")
+
         return "\n\n".join(lines)
 
 
@@ -23,11 +22,11 @@ def department_directory() -> str:
     with get_db_session() as session:
         repo = DepartmentRepository(session)
         departments = repo.get_all()
-        
+
         lines = []
         for dept in departments:
             lines.append(f"{dept.name} ({dept.code})")
-        
+
         return "\n".join(lines)
 
 

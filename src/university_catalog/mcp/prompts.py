@@ -4,7 +4,7 @@ from mcp.server.fastmcp import FastMCP
 def course_comparison_template(course_code_1: str, course_code_2: str) -> str:
     """
     Compare two courses and provide a detailed analysis.
-    
+
     Args:
         course_code_1: First course code to compare (e.g., 'CS101')
         course_code_2: Second course code to compare (e.g., 'CS102')
@@ -31,7 +31,7 @@ Be specific and use information from the course catalog."""
 def course_advisor(student_goals: str, completed_courses: str) -> str:
     """
     Academic advising prompt for course planning.
-    
+
     Args:
         student_goals: The student's academic and career goals
         completed_courses: Comma-separated list of courses already completed
